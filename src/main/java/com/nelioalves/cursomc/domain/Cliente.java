@@ -5,6 +5,7 @@
  */
 package com.nelioalves.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nelioalves.cursomc.domain.enums.TipoCliente;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class Cliente implements Serializable{
     private String cpfOuCnpj;
     private Integer tipo;
     
+    @JsonManagedReference
     @OneToMany(mappedBy="cliente")
     private List<Endereco> enderecos = new ArrayList<>();
     
@@ -46,6 +48,7 @@ public class Cliente implements Serializable{
     public Cliente(){}
 
     public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+        super();
         this.id = id;
         this.nome = nome;
         this.email = email;
