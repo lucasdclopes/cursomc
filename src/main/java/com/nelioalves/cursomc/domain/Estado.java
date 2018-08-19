@@ -10,7 +10,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -54,13 +58,13 @@ public class Estado implements Serializable{
         this.nome = nome;
     }
 
-    public List<Cidade> getCidade() {
+    public List<Cidade> getCidades() {
         return cidades;
     }
 
-    public void setCidade(List<Cidade> cidade) {
-        this.cidades = cidade;
-    }
+    public void setCidades(List<Cidade> cidades) {
+        this.cidades = cidades;
+    }  
 
     @Override
     public int hashCode() {

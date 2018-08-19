@@ -8,7 +8,12 @@ package com.nelioalves.cursomc.domain;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -23,6 +28,7 @@ public class Cidade implements Serializable {
     private Integer id;
     private String nome;
     
+    
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="estado_id")
@@ -31,7 +37,8 @@ public class Cidade implements Serializable {
     public Cidade() {
     }
 
-    public Cidade(Integer id, String nome, Estado estado) {
+    public Cidade(Integer id, String nome, Estado estado
+    ) {
         super();
         this.id = id;
         this.nome = nome;
